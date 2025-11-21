@@ -65,6 +65,14 @@ ioo
 ooo
 ```
 
+PLAN
+
+retravailler les données (renommer)
+
+création objet ts (+ visualisation et vérification du ts (end, start, tsp))
+
+analyse : autocorrélation, stat.slide (boxplot ?), tendance générale (si cyclique : analyse spectrale), tendance locale
+
 ## Conclusion
 
 <!--% Lorsque toutes les analyses sont réalisées, terminez ce bloc-notes avec 3 à 6 phrases de conclusion en rapport avec ce que vous avez observé dans vos analyses. Quels sont les éléments les plus pertinents que vous retenez ? -->
