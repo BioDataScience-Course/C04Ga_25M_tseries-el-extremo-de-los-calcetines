@@ -1,6 +1,6 @@
 ---
 title: "___"
-author: "___"
+author: "Huart Hugo, Liébin Arnaud, Shaw Alan, Rochet Loïc"
 format:
   html:
     code-fold: true

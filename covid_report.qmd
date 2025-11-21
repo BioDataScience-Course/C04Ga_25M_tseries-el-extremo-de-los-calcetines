@@ -1,6 +1,6 @@
 ---
 title: "___"
-author: "___, ___, ___, ___"
+author: "Huart Hugo, Liébin Arnaud, Shaw Alan, Rochet Loïc"
 format:
   pdf:
     documentclass: report
