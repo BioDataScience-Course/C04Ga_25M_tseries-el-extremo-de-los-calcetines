@@ -49,6 +49,22 @@ head(covid)
 skimr::skim(covid)
 ```
 
+```{r.test.arnaud}
+
+```
+
+```{r.test.loïc}
+
+```
+
+```{r.test.alan}
+
+```
+
+```{r.test.ponyo}
+
+```
+
 ## Conclusion
 
 <!--% Lorsque toutes les analyses sont réalisées, terminez ce bloc-notes avec 3 à 6 phrases de conclusion en rapport avec ce que vous avez observé dans vos analyses. Quels sont les éléments les plus pertinents que vous retenez ? -->
