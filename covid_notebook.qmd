@@ -53,7 +53,7 @@ skimr::skim(covid)
 
 ```
 
-```{r loictest}
+```{r loïctest}
 iio
 ```
 
