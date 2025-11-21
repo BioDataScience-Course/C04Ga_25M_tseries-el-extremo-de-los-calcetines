@@ -1,5 +1,5 @@
 ---
-title: "___"
+title: "Impact de la COVID-19 sur la mobilité du peuple belge"
 author: "Huart Hugo, Liébin Arnaud, Shaw Alan, Rochet Loïc"
 format:
   html:
@@ -20,7 +20,7 @@ lang: fr
 
 <!--% Rédigez une courte introduction de 3 ou 5 phrases qui présente vos données. Ajoutez une phrase de but. Vous devez citer la bibliographie en utilisant le formatage Markdown ad hoc et en incluant votre référence au format bibtex dans le fichier references.bib. -->
 
-... Introduction et but...
+La Covid19 a eu une grande influence sur le quotidien des belges. Nous observons l'impact de cette maladie sur la mobilité globale dans la Belgique pendant les années de 2020 à 2022. La mobilité de référence est calculée entre le 3 janvier et le 6 février 2020, une période durant laquelle il n'y a pas encore de mesures restrictives. Nous avons pour objectif d'analyser l'impact de la Covid19 sur la mobilité en Belgique.
 
 ## Matériel et méthodes
 
