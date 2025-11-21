@@ -38,18 +38,18 @@ if (!"tools:tests" %in% search())
 SciViews::R("ts")
 ```
 
-```{r importation des données}
+```{r}
 covid <- read("data/mobility_wallonia.rds")
 head(covid)
 ```
 
 <!--% Ajoutez le nombre de chunks que vous souhaitez. Répartissez-vous le travail correctement. Structurez la section en partie avec des titres explicites de niveau trois.-->
 
-```{r visualisation des données}
+```{r}
 skimr::skim(covid)
 ```
 
-```{r.test.arnaud}
+```{r.testarnaud}
 
 ```
 
