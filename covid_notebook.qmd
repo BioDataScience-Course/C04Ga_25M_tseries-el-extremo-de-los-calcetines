@@ -26,8 +26,6 @@ lang: fr
 
 <!--% Indiquez ici d'où viennent les données et aussi quel logiciel (et version) vous utilisez pour les analyses. Inspirez-vous des projets déjà réalisés. -->
 
-...Matériel et méthodes...
-
 ## Analyses
 
 <!--% Lisez bien les éléments devant guider votre analyse proposée dans le README.-->
@@ -38,6 +36,10 @@ if (!"tools:tests" %in% search())
   source(here::here("tests/tools_tests.R"), attach(NULL, name = "tools:tests"))
 # Configuration de l'environnement
 SciViews::R("ts")
+```
+
+```{r}
+read("data/mobility_wallonia.rds")
 ```
 
 <!--% Ajoutez le nombre de chunks que vous souhaitez. Répartissez-vous le travail correctement. Structurez la section en partie avec des titres explicites de niveau trois.-->
