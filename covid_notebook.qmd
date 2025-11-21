@@ -49,11 +49,11 @@ head(covid)
 skimr::skim(covid)
 ```
 
-```{r} Arnaud test}
-iii
+```{r arnaudtest}
+
 ```
 
-```{r}
+```{r loictest}
 iio
 ```
 
@@ -61,7 +61,7 @@ iio
 ioo
 ```
 
-```{r}
+```{r hugotest}
 ooo
 ```
 
