@@ -62,7 +62,6 @@ skimr::skim(covid)
 ```
 
 ```{r.test.ponyo}
-
 ```
 
 ## Conclusion
