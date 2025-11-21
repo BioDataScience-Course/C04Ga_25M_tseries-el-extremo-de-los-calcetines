@@ -39,7 +39,8 @@ SciViews::R("ts")
 ```
 
 ```{r}
-read("data/mobility_wallonia.rds")
+covid <- read("data/mobility_wallonia.rds")
+head(covid)
 ```
 
 <!--% Ajoutez le nombre de chunks que vous souhaitez. Répartissez-vous le travail correctement. Structurez la section en partie avec des titres explicites de niveau trois.-->
