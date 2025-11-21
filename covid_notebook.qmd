@@ -1,5 +1,5 @@
 ---
-title: "___"
+title: "Impact de la COVID-19 sur la mobilité du peuple belge"
 author: "Huart Hugo, Liébin Arnaud, Shaw Alan, Rochet Loïc"
 format:
   html:
