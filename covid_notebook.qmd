@@ -74,7 +74,8 @@ création objet ts (+ visualisation et vérification du ts (end, start, tsp))
 analyse : autocorrélation, stat.slide (boxplot ?), tendance générale (si cyclique : analyse spectrale), tendance locale
 
 ```{r remaniement des données}
-
+rename(covid, commerce_recreation = retail_and_recreation_percent_change_from_baseline, grocery_pharmacy = grocery_and_pharmacy_percent_change_from_baseline, parks = parks_percent_change_from_baseline, transit = transit_stations_percent_change_from_baseline, worplaces = workplaces_percent_change_from_baseline, residential = residential_percent_change_from_baseline) ->
+  covid
 ```
 
 ## Conclusion
