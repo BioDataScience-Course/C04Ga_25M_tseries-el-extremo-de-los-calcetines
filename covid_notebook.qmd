@@ -57,7 +57,7 @@ rename(covid, commerce_recreation = retail_and_recreation_percent_change_from_ba
 ### Transports en communs
 
 ```{r arnaudtest}
-covid_ts_transit <- ts(covid$transit, start = c(2020, 2, 15), frequency = 12)
+covid_ts_transit <- ts(covid$transit, start = c(2020, 46), frequency = 365, names = month.abb)
 class(covid_ts_transit)
 plot(covid_ts_transit)
 ```
