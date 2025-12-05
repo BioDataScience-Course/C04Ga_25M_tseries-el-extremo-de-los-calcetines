@@ -50,7 +50,7 @@ skimr::skim(covid)
 ```
 
 ```{r remaniement des données}
-rename(covid, commerce_recreation = retail_and_recreation_percent_change_from_baseline, grocery_pharmacy = grocery_and_pharmacy_percent_change_from_baseline, parks = parks_percent_change_from_baseline, transit = transit_stations_percent_change_from_baseline, worplaces = workplaces_percent_change_from_baseline, residential = residential_percent_change_from_baseline) ->
+rename(covid, commerce_recreation = retail_and_recreation_percent_change_from_baseline, grocery_pharmacy = grocery_and_pharmacy_percent_change_from_baseline, parks = parks_percent_change_from_baseline, transit = transit_stations_percent_change_from_baseline, workplaces = workplaces_percent_change_from_baseline, residential = residential_percent_change_from_baseline) ->
   covid
 ```
 
@@ -81,7 +81,12 @@ plot(covid_al_ts, xlab = "Année", ylab = "%", main = "% de gens qui sont chez e
 ### Lieu de travail
 
 ```{r hugotest}
-tsd(covid$workplaces_percent_change_from_baseline, type = "l")
+covid_tsh <- ts(covid$workplaces, start = c(2020, 46), frequency = 365)
+plot(covid_tsh, xlab = "Temps [année]", ylab = "Taux déplacement au travail p/r référence", main = "influence du COVID-19 sur le déplacement au travail")
+```
+
+```{r}
+acf(covid_tsh)
 ```
 
 PLAN
