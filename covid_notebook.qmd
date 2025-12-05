@@ -118,6 +118,27 @@ plot(covid_al_ts2)
 
 ```{r hugotest}
 #WE
+covid_hu_ts <- ts(covid_sem$residential, start = c(2020, 46), frequency = 365)
+covid_hu_ts2 <- aggregate(covid_hu_ts, 52, FUN = collapse::fmean, ts.eps = 1/52)
+plot(covid_hu_ts2)
+```
+
+```{r}
+loca_trend_hu <-local.trend(covid_hu_ts2)
+```
+
+```{r}
+gen_trend_hu <- trend.test(covid_hu_ts2, R = 999)
+plot(gen_trend_hu)
+```
+
+```{r}
+tsdhu <- tsd(covid_hu_ts2, method = "median", type = "additive", order = 7, time = 3)
+plot(tsdhu)
+```
+
+```{r}
+plot(extract(tsdhu, components = "filtered"))
 ```
 
 PLAN
