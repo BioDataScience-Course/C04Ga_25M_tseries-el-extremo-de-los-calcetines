@@ -79,7 +79,7 @@ ioo
 ### Lieu de travail
 
 ```{r hugotest}
-
+tsd(covid$workplaces_percent_change_from_baseline, type = "l")
 ```
 
 PLAN
