@@ -91,30 +91,29 @@ core_ts_we <- aggregate(ts(covid_we$commerce_recreation, start = c(2020, 46), fr
 plot(core_ts_we)
 ```
 
+analyse
+
+```{r acf recreation1}
+acf(core_ts)
+acf(core_ts2)
+```
+
 ```{r statslide}
 sl_core <- stat.slide(time(core_ts), core_ts,
   xmin = 0, n = 7, deltat = 10)
 ```
 
-### Résidence
-
-```{r alantest}
-
-# sur les Lieux de résidence
-covid_al_ts <- ts(covid$residential, start = c(2020, 46), frequency = 365)
-plot(covid_al_ts)
-
-```
-
 ### Lieu de travail
 
-```{r hugotest}
-covid_tsh <- ts(covid$workplaces, start = c(2020, 46), frequency = 365)
-plot(covid_tsh, xlab = "Temps [année]", ylab = "Taux déplacement au travail p/r référence", main = "influence du COVID-19 sur le déplacement au travail")
+```{r alantest}
+#semaine
+covid_al_ts <- ts(covid_sem$residential, start = c(2020, 46), frequency = 365)
+covid_al_ts2 <- aggregate(covid_al_ts, 52, FUN = collapse::fmean, ts.eps = 1/52)
+plot(covid_al_ts2)
 ```
 
-```{r}
-acf(covid_tsh)
+```{r hugotest}
+#WE
 ```
 
 PLAN
