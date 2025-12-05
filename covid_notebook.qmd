@@ -72,13 +72,6 @@ covid_we$weekdays <- weekdays(as.POSIXct(covid_we$date))
 covid_we[covid_we$weekdays == "Monday" | covid_we$weekdays == "Tuesday"| covid_we$weekdays == "Wednesday" |covid_we$weekdays == "Thursday" | covid_we$weekdays == "Friday" , 2:7] <- NA 
 ```
 
-### Transports en communs
-
-```{r arnaudtest}
-covid_ts_transit <- ts(covid$transit, start = c(2020, 2, 15), frequency = 12)
-class(covid_ts_transit)
-plot(covid_ts_transit)
-```
 
 ### Commerce et récréation
 
