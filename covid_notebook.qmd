@@ -85,8 +85,10 @@ plot(covid_ts_transit)
 ```{r loïctest}
 core_ts <- ts(covid$commerce_recreation, start = c(2020, 46), frequency = 365)
 plot(core_ts)
-core_ts2 <- aggregate(ts(covid_sem$commerce_recreation, start = c(2020, 46), frequency = 365), 52, FUN = collapse::fmean, ts.eps = 1/52)
-plot(core_ts2)
+core_ts_sem <- aggregate(ts(covid_sem$commerce_recreation, start = c(2020, 46), frequency = 365), 52, FUN = collapse::fmean, ts.eps = 1/52)
+plot(core_ts_sem)
+core_ts_we <- aggregate(ts(covid_we$commerce_recreation, start = c(2020, 46), frequency = 365), 52, FUN = collapse::fmean, ts.eps = 1/52)
+plot(core_ts_we)
 ```
 
 ```{r statslide}
