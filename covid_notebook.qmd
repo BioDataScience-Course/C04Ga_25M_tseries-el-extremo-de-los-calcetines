@@ -93,7 +93,7 @@ analyse
 
 ```{r acf recreation1}
 acf(core_ts)
-acf(core_)
+acf(core_ts2)
 ```
 
 ```{r statslide}
