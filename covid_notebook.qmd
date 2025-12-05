@@ -87,6 +87,13 @@ core_ts2 <- aggregate(core_tss, 52, FUN = collapse::fmean, ts.eps = 1/52)
 plot(core_ts2)
 ```
 
+analyse
+
+```{r acf recreation1}
+acf(core_ts)
+acf(core_)
+```
+
 ```{r statslide}
 sl_core <- stat.slide(time(core_ts), core_ts,
   xmin = 0, n = 7, deltat = 10)
