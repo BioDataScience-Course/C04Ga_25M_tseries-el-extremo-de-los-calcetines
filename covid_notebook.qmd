@@ -73,7 +73,9 @@ plot(covid_ts)
 ### Résidence
 
 ```{r alantest}
-ioo
+# sur les Lieux de résidence
+covid_al_ts <- ts(covid$residential, start = c(2020, 46), frequency = 365)
+plot(covid_al_ts, xlab = "Année", ylab = "%", main = "% de gens qui sont chez eux p/r à la normal")
 ```
 
 ### Lieu de travail
