@@ -72,7 +72,6 @@ covid_we$weekdays <- weekdays(as.POSIXct(covid_we$date))
 covid_we[covid_we$weekdays == "Monday" | covid_we$weekdays == "Tuesday"| covid_we$weekdays == "Wednesday" |covid_we$weekdays == "Thursday" | covid_we$weekdays == "Friday" , 2:7] <- NA 
 ```
 
-
 ### Commerce et récréation
 
 ```{r loïctest}
@@ -95,6 +94,16 @@ acf(core_ts2)
 sl_core <- stat.slide(time(core_ts), core_ts,
   xmin = 0, n = 7, deltat = 10)
 ```
+
+```{r tendances locales}
+
+```
+
+```{r tendance générale}
+
+```
+
+
 
 ### Lieu de travail
 
