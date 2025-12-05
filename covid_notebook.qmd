@@ -54,10 +54,25 @@ rename(covid, commerce_recreation = retail_and_recreation_percent_change_from_ba
   covid
 ```
 
+```{r}
+# Copie de la série initiale sous une autre nom
+covid_sem <- covid
+# Calcul des jours de la semaine
+covid_sem$weekdays <- weekdays(as.POSIXct(covid_sem$date))
+# Les données du week-end sont remplacées par des valeurs manquantes
+covid_sem[covid_sem$weekdays == "Saturday" | covid_sem$weekdays == "Sunday" , 2:7] <- NA 
+# La série temporelle est créée (début le 15 février 2020 = 46e jour de l'année 2020)
+covid_sem_ts <- ts(covid_sem$parks, start = c(2020, 46), frequency = 365)
+plot(covid_sem_ts)
+# Aggrégation par moyenne des valeurs par semaine
+covid_sem_ts2 <- aggregate(covid_sem_ts, 52, FUN = collapse::fmean, ts.eps = 1/52)
+plot(covid_sem_ts2)
+```
+
 ### Transports en communs
 
 ```{r arnaudtest}
-covid_ts_transit <- ts(covid$transit, start = c(2020, 46), frequency = 365, names = month.abb)
+covid_ts_transit <- ts(covid$transit, start = c(2020, 2, 15), frequency = 12)
 class(covid_ts_transit)
 plot(covid_ts_transit)
 ```
@@ -65,17 +80,23 @@ plot(covid_ts_transit)
 ### Commerce et récréation
 
 ```{r loïctest}
-covid_ts <- ts(covid$commerce_recreation, start = c(2020, 46), frequency = 365)
-class(covid_ts)
-plot(covid_ts)
+core_ts <- ts(covid$commerce_recreation, start = c(2020, 46), frequency = 365)
+plot(core_ts)
+```
+
+```{r statslide}
+sl_core <- stat.slide(time(core_ts), core_ts,
+  xmin = 0, n = 7, deltat = 10)
 ```
 
 ### Résidence
 
 ```{r alantest}
+
 # sur les Lieux de résidence
 covid_al_ts <- ts(covid$residential, start = c(2020, 46), frequency = 365)
-plot(covid_al_ts, xlab = "Année", ylab = "%", main = "% de gens qui sont chez eux p/r à la normal")
+plot(covid_al_ts)
+
 ```
 
 ### Lieu de travail
