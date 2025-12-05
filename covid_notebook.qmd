@@ -57,7 +57,7 @@ rename(covid, commerce_recreation = retail_and_recreation_percent_change_from_ba
 ### Transports en communs
 
 ```{r arnaudtest}
-covid_ts_transit <- ts(covid$transit, start = c(2020, 46), frequency = 365, names = month.abb)
+covid_ts_transit <- ts(covid$transit, start = c(2020, 2, 15), frequency = 12)
 class(covid_ts_transit)
 plot(covid_ts_transit)
 ```
@@ -65,17 +65,14 @@ plot(covid_ts_transit)
 ### Commerce et récréation
 
 ```{r loïctest}
-covid_ts <- ts(covid$commerce_recreation, start = c(2020, 46), frequency = 365)
-class(covid_ts)
-plot(covid_ts)
+core_ts <- ts(covid$commerce_recreation, start = c(2020, 46), frequency = 365)
+plot(core_ts)
 ```
 
 ### Résidence
 
 ```{r alantest}
-# sur les Lieux de résidence
-covid_al_ts <- ts(covid$residential, start = c(2020, 46), frequency = 365)
-plot(covid_al_ts, xlab = "Année", ylab = "%", main = "% de gens qui sont chez eux p/r à la normal")
+ioo
 ```
 
 ### Lieu de travail
