@@ -62,7 +62,7 @@ ioo
 ```
 
 ```{r hugotest}
-ooo
+
 ```
 
 PLAN
