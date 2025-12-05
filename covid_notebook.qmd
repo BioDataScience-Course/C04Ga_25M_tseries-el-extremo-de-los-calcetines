@@ -49,8 +49,15 @@ head(covid)
 skimr::skim(covid)
 ```
 
-```{r arnaudtest}
+```{r remaniement des données}
+rename(covid, commerce_recreation = retail_and_recreation_percent_change_from_baseline, grocery_pharmacy = grocery_and_pharmacy_percent_change_from_baseline, parks = parks_percent_change_from_baseline, transit = transit_stations_percent_change_from_baseline, worplaces = workplaces_percent_change_from_baseline, residential = residential_percent_change_from_baseline) ->
+  covid
+```
 
+```{r arnaudtest}
+covid_ts_transit <- ts(covid$transit, start = c(2020, 2, 15), frequency = 12)
+class(covid_ts_transit)
+plot(covid_ts_transit)
 ```
 
 ```{r loïctest}
@@ -74,11 +81,6 @@ retravailler les données (renommer)
 création objet ts (+ visualisation et vérification du ts (end, start, tsp))
 
 analyse : autocorrélation, stat.slide (boxplot ?), tendance générale (si cyclique : analyse spectrale), tendance locale
-
-```{r remaniement des données}
-rename(covid, commerce_recreation = retail_and_recreation_percent_change_from_baseline, grocery_pharmacy = grocery_and_pharmacy_percent_change_from_baseline, parks = parks_percent_change_from_baseline, transit = transit_stations_percent_change_from_baseline, worplaces = workplaces_percent_change_from_baseline, residential = residential_percent_change_from_baseline) ->
-  covid
-```
 
 ## Conclusion
 
