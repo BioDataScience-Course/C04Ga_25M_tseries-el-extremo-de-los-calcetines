@@ -72,28 +72,22 @@ covid_we$weekdays <- weekdays(as.POSIXct(covid_we$date))
 covid_we[covid_we$weekdays == "Monday" | covid_we$weekdays == "Tuesday"| covid_we$weekdays == "Wednesday" |covid_we$weekdays == "Thursday" | covid_we$weekdays == "Friday" , 2:7] <- NA 
 ```
 
-### Transports en communs
-
-```{r arnaudtest}
-covid_ts_transit <- ts(covid$transit, start = c(2020, 2, 15), frequency = 12)
-class(covid_ts_transit)
-plot(covid_ts_transit)
-```
-
 ### Commerce et récréation
 
 ```{r loïctest}
 core_ts <- ts(covid$commerce_recreation, start = c(2020, 46), frequency = 365)
 plot(core_ts)
-core_ts2 <- aggregate(ts(covid_sem$commerce_recreation, start = c(2020, 46), frequency = 365), 52, FUN = collapse::fmean, ts.eps = 1/52)
-plot(core_ts2)
+core_ts_sem <- aggregate(ts(covid_sem$commerce_recreation, start = c(2020, 46), frequency = 365), 52, FUN = collapse::fmean, ts.eps = 1/52)
+plot(core_ts_sem)
+core_ts_we <- aggregate(ts(covid_we$commerce_recreation, start = c(2020, 46), frequency = 365), 52, FUN = collapse::fmean, ts.eps = 1/52)
+plot(core_ts_we)
 ```
 
 analyse
 
 ```{r acf recreation1}
-acf(core_ts)
-acf(core_)
+acf(core_ts_sem)
+acf(core_ts_we)
 ```
 
 ```{r statslide}
@@ -101,11 +95,15 @@ sl_core <- stat.slide(time(core_ts), core_ts,
   xmin = 0, n = 7, deltat = 10)
 ```
 
-### Résidence
-
-```{r alantest}
+```{r tendances locales}
 
 ```
+
+```{r tendance générale}
+
+```
+
+
 
 ### Lieu de travail
 
