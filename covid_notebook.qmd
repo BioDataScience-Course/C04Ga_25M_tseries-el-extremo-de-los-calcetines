@@ -94,8 +94,8 @@ plot(core_ts_we)
 analyse
 
 ```{r acf recreation1}
-acf(core_ts)
-acf(core_ts2)
+acf(core_ts_sem)
+acf(core_ts_we)
 ```
 
 ```{r statslide}
