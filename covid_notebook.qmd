@@ -105,13 +105,30 @@ sl_core <- stat.slide(time(core_ts), core_ts,
 
 ```{r alantest}
 #semaine
-covid_al_ts <- ts(covid_sem$residential, start = c(2020, 46), frequency = 365)
+covid_al_ts <- ts(covid_sem$workplaces, start = c(2020, 46), frequency = 365)
 covid_al_ts2 <- aggregate(covid_al_ts, 52, FUN = collapse::fmean, ts.eps = 1/52)
 plot(covid_al_ts2)
 ```
 
+```{r}
+trend_al <- local.trend(covid_al_ts2)
+plot(trend_al)
+trend_al_gene <- trend.test(covid_al_ts2, R = 999)
+plot(trend_al_gene)
+```
+
+```{r}
+tsd_al <- tsd(covid_al_ts2, method = "median", type = "additive", order = 4, time = 3)
+plot(tsd_al) 
+```
+
+```{r}
+plot(extract(tsd_al, components = "filtered"))
+```
+
 ```{r hugotest}
 #WE
+
 ```
 
 PLAN
