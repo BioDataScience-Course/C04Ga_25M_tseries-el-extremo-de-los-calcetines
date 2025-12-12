@@ -17,9 +17,13 @@ lang: fr
 
 <!--% Rédigez l'introduction de ce rapport.-->
 
+La pandémie de Covid-19 a fortement changé le quotidien des Belges. Avec les confinements, les limites de déplacement et le télétravail, les habitudes de mobilité ont été complètement bouleversées. Pour voir à quel point ces changements ont été importants, on compare la mobilité pendant la pandémie à celle d’avant les mesures, entre le 3 janvier et le 6 février 2020, une période où tout fonctionnait normalement.
+
 ## But
 
 <!--% Rédigez le but de ce rapport.-->
+
+Le but de ce travail est d’observer et de comprendre comment la Covid-19 a influencé la mobilité en Belgique entre 2020 et 2022. En comparant les données aux valeurs de référence, on cherche à voir comment les déplacements ont augmenté ou diminué selon les différentes périodes de la crise.
 
 ## Matériel et méthodes
 
