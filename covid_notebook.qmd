@@ -113,7 +113,7 @@ Les différences de tendances locales sont minimes entre we et weekdays. La tend
 
 ```
 
-### Lieu de travail
+### Tendances de mobilité vers les lieux de travail
 
 ```{r alantest}
 #semaine
@@ -138,31 +138,69 @@ plot(tsd_al)
 plot(extract(tsd_al, components = "filtered"))
 ```
 
+### Tendances de mobilité vers les lieux de travail le week-end
+
+Dans cette partie, nous analysons les tendances de mobilité vers les lieux de travail pendant les week-ends au cours de la pandémie de Covid-19 en Belgique. L’objectif est d’observer comment les déplacements liés au travail ont évolué par rapport à la période de référence, en étudiant les variations hebdomadaires entre 2020 et 2022.
+
 ```{r hugotest}
 #WE
 
 covid_hu_ts <- ts(covid_sem$residential, start = c(2020, 46), frequency = 365)
 covid_hu_ts2 <- aggregate(covid_hu_ts, 52, FUN = collapse::fmean, ts.eps = 1/52)
-plot(covid_hu_ts2)
+plot(covid_hu_ts2, main = "Tendances de mobilité vers les lieux de travail (week-ends)", xlab = "Temps (années)", ylab = "Variation de mobilité (%)")
 ```
 
+En observant le graphique, on remarque que la mobilité vers les lieux de travail durant les week-ends a fortement varié tout au long de la pandémie. Vers la fin de l’année 2020, on voit d’abord une chute importante suivie d’une remontée rapide. Cette période correspond aux mesures strictes de la deuxième vague, qui ont fortement limité les déplacements vers le travail, même le week-end.
+
+En 2021, la fréquentation des lieux de travail reste plus basse que la normale et montre beaucoup de variations. Certains pics semblent correspondre à des moments où les règles sanitaires étaient plus souples, tandis que les baisses reflètent le retour de mesures plus strictes.
+
+En 2022, la mobilité se stabilise à un niveau globalement plus bas. Cela traduit un retour progressif à une situation plus normale, mais on voit que les déplacements du week-end vers le travail restent moins fréquents qu’avant la pandémie, probablement en raison du maintien du télétravail dans de nombreuses situations.
+
+Pour approfondir l’analyse des variations observées, nous nous intéressons à la tendance locale lissée de la mobilité vers les lieux de travail, qui permet de mettre en évidence l’évolution générale au-delà des fluctuations hebdomadaires.
+
 ```{r}
-loca_trend_hu <-local.trend(covid_hu_ts2)
+loca_trend_hu <-local.trend(covid_hu_ts2, main = "Tendance locale de la mobilité week-end vers le travail", xlab = "Temps (année)", ylab = "Mobilité (%) – tendance locale par rapport normale")
 ```
+
+Le graphique présente deux courbes : la courbe noire en pointillés montre les variations hebdomadaires observées, tandis que la courbe rouge représente la tendance locale lissée. On observe d’abord, à la fin de l’année 2020 une forte augmentation de la tendance rouge, indiquant la sortie d’une période où la mobilité avait été très limitée par des mesures strictes.
+
+En 2021, la tendance reste à un niveau relativement élevé et stable. Cela indique que, malgré les variations hebdomadaires visibles sur la courbe noire, la mobilité générale vers les lieux de travail le week-end reste soutenue, ponctuée par des pics et des creux correspondant aux assouplissements ou renforcements des restrictions sanitaires.
+
+À partir de 2022, la courbe rouge montre une diminution progressive. Cette baisse traduit un retour vers une mobilité moindre le week-end, probablement lié au maintien du télétravail ou à des changements durables dans les habitudes professionnelles.
+
+Pour résumer, l’analyse de la courbe lissée révèle un cycle clair : une montée importante fin 2020, une période stable en 2021, puis une diminution continue en 2022. Ces tendances confirment que la pandémie a influencé de manière durable la mobilité vers les lieux de travail durant les week-ends.
+
+Maintenant, ce graphique présente le résultat du test de tendance réalisé par bootstrap. On y voit la distribution des statistiques (histogramme à gauche) et leur comparaison à une distribution normale théorique (QQ-plot à droite).
 
 ```{r}
 gen_trend_hu <- trend.test(covid_hu_ts2, R = 999)
 plot(gen_trend_hu)
 ```
 
-```{r}
-tsdhu <- tsd(covid_hu_ts2, method = "median", type = "additive", order = 7, time = 3)
-plot(tsdhu)
-```
+L’histogramme montre les valeurs du t\* qu’on obtiendrait s’il n’y avait aucune tendance réelle. La ligne pointillée représente la valeur observée, qui se trouve clairement en dehors de la distribution: cela indique que la tendance n’est probablement pas due au hasard.
+
+Le QQ-plot confirme que les valeurs simulées suivent bien une forme normale. Le test est fiable.
+
+Au final, ce graphique indique qu’il existe une tendance significative dans les données.
+
+Pour compléter les analyses précédentes, nous avons appliqué une décomposition robuste de la série temporelle. Ce graphique permet de séparer la série originale, la tendance filtrée et les résidus afin de mieux comprendre la dynamique sous-jacente.
 
 ```{r}
-plot(extract(tsdhu, components = "filtered"))
+tsdhu <- tsd(covid_hu_ts2, method = "median", type = "additive", order = 7, time = 3)
+plot(tsdhu, xlab = "Temps (semaines)")
 ```
+
+La première partie montre la série brute, avec ses variations et ses fluctuations. En dessous, la courbe « filtered » correspond à la tendance extraite : elle représente l’évolution plus lente et structurelle du signal. Enfin, les résidus indiquent ce qui reste une fois la tendance retirée, c’est-à-dire les variations rapides, les variations irrégulières et les fluctuations aléatoires.
+
+Regardons plus précisément la tendance filtrée :
+
+```{r}
+plot(extract(tsdhu, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de travail le week-end", xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
+```
+
+La tendance filtrée montre l’évolution générale de la mobilité en Belgique entre 2020 et 2022. On observe d’abord des valeurs élevées au début de la période, correspondant à la situation avant la mise en place des restrictions liées à la Covid-19. La mobilité diminue ensuite fortement avec l’apparition des premières mesures sanitaires (vers fin 2020).
+
+Par la suite, la tendance évolue plus lentement, avec des phases de stabilisation et de légères remontées, montrant les périodes d’assouplissement des restrictions. Cependant, la mobilité ne retrouve jamais durablement son niveau initial et diminue progressivement vers la fin de la période. Ce graphique met donc en évidence une baisse globale et durable de la mobilité, liée aux changements induits par la pandémie.
 
 ## Conclusion
 
