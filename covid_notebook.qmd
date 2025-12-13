@@ -121,14 +121,14 @@ Nous allons maitenant nous intéresser au déplacement vers les lieux de travail
 #semaine
 covid_al_ts <- ts(covid_sem$workplaces, start = c(2020, 46), frequency = 365)
 covid_al_ts2 <- aggregate(covid_al_ts, 52, FUN = collapse::fmean, ts.eps = 1/52)
-plot(covid_al_ts2)
+plot(covid_al_ts2, main = "Tendances de mobilité vers les lieux de travail (semaine)", xlab = "Temps (années)", ylab = "Variation de mobilité (%)")
 ```
 
 Le début du graphique (début 2020) nous permet de voir les tendances générales avant le début de la pandémie et principalement avant les premières restrictions. Globalement, beaucoup de pic sont observés et les tendances sont très variables. La première chute est observée au début 2020, avec les premières restrictions. Le reste des variations correspondent aux assouplissements ou durcissements des règles. Certaines périodes correspondent également aux périodes de vacances ou de congés à des périodes prisées (Noël, Pâques, ...).
 
 ```{r}
-trend_al <- local.trend(covid_al_ts2)
-plot(trend_al)
+trend_al <- local.trend(covid_al_ts2, main = "Tendance locale de la mobilité de la semaine vers le travail", xlab = "Temps (année)", ylab = "Mobilité (%) – tendance locale par rapport normale")
+plot(trend_al, main = "Tendance locale de la mobilité de la semaine vers le travail", xlab = "Temps (année)", ylab = "Mobilité (%) – tendance locale par rapport normale")
 trend_al_gene <- trend.test(covid_al_ts2, R = 999)
 plot(trend_al_gene)
 ```
@@ -141,7 +141,7 @@ Le dernier graphique quantille-quantille nous confirme en tendance qui suit la n
 
 ```{r}
 tsd_al <- tsd(covid_al_ts2, method = "median", type = "additive", order = 4, time = 3)
-plot(tsd_al) 
+plot(tsd_al, xlab = "Temps (semaines)") 
 ```
 
 Le premier graphique nous montre notre série brute, telle que nous l'avons déjà analysée.
@@ -151,7 +151,8 @@ Le second graphique nous permet de lisser nos données pour avoir une meilleure 
 Les résidus nous indiquent ce qui a été extrait de cette série lissée, donc les petites variations que l'on apercoit dans la série brute.
 
 ```{r}
-plot(extract(tsd_al, components = "filtered"))
+plot(extract(tsd_al, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de travail la semaine",
+  xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
 ```
 
 Nous nous intéressons à cette série filtrée. On observe effectivement une diminution de la mobilité au début de 2020, au moment des premières restricitons. Des assouplissements sont visibles avec une remontée des valeurs jusqu'environ septembre 2020. Un plateau est observé jusque mi 2021 et une légère rechute se fait ressentir pendant quelques mois, certainement dû à une nouvelle vague de restriction. Une remontée se fait immédiatement sentir après ça suivi d'un plateau pendant quelques moins, jusqu'en mi 2022. La dernière variations a lieu juste après pendant 3 mois, pour revenir à la normale fin 2022.
