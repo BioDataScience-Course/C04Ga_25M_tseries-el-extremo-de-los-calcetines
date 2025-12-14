@@ -17,7 +17,7 @@ lang: fr
 
 <!--% Rédigez l'introduction de ce rapport.-->
 
-La pandémie de Covid-19 a fortement changé le quotidien des Belges. Avec les confinements, les limites de déplacement et le télétravail, les habitudes de mobilité ont été complètement bouleversées. Pour voir à quel point ces changements ont été importants, on compare la mobilité pendant la pandémie à celle d’avant les mesures, entre le 3 janvier et le 6 février 2020, une période où tout fonctionnait normalement.
+La pandémie de Covid-19 a fortement changé le quotidien des wallons. Avec les confinements, les limites de déplacement et le télétravail, les habitudes de mobilité ont été complètement bouleversées. Pour voir à quel point ces changements ont été importants, on compare la mobilité pendant la pandémie à celle d’avant les mesures, entre le 3 janvier et le 6 février 2020, une période où tout fonctionnait normalement.
 
 ## But
 
