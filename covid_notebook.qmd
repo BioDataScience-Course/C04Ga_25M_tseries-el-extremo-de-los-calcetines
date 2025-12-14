@@ -95,12 +95,6 @@ acf(core_ts_we)
 
 Le graphique de l'autocorrélation montre qu'il existe une tendance générale pour les deux séries : celle des weekdays et celle du we.
 
-```{r statslide}
-sl_core <- stat.slide(time(core_ts_sem), core_ts_sem,
-  xmin = 1, deltat = 10)
-plot(sl_core, stat = "mean")
-```
-
 ```{r tendances locales}
 #local trends semaine
 local.trend(core_ts_sem)
@@ -115,11 +109,27 @@ Les différences de tendances locales sont minimes entre we et weekdays et peuve
 ```{r tendance générale}
 #tendance gen semaine
 core_trendgen_sem <- trend.test(core_ts_sem, R = 999)
-plot(core_trendgen_sem)
+plot(core_trendgen_sem, main = "Histogram of t semaine")
 #tendance gen WE
 core_trendgen_we <- trend.test(core_ts_we, R = 999)
-plot(core_trendgen_we)
+plot(core_trendgen_we, main = "Histogram of t Weekend")
 ```
+
+jsppp
+
+```{r}
+#tsd semaine
+core_tsd_sem <- tsd(core_ts_sem, method = "median", type = "additive", order = 4, time = 3)
+plot(core_tsd_sem, xlab = "Temps (semaines)") 
+```
+
+```{r}
+#tsd we
+core_tsd_we <- tsd(core_ts_we, method = "median", type = "additive", order = 4, time = 3)
+plot(core_tsd_we, xlab = "Temps (semaines)") 
+```
+
+Compare les juste ensemble
 
 ### Tendances de mobilité vers les lieux de travail la semaine
 
