@@ -86,7 +86,7 @@ core_ts_we <- aggregate(ts(covid_we$commerce_recreation, start = c(2020, 46), fr
 plot(core_ts_we)
 ```
 
-analyse
+Le début des graphiques nous permet d'observer des valeurs plus élevées avant la pandémie. Nous pouvons observer plusieurs pics, le premier début 2020 correspond aux premières restrictions. Par la suite, nous pouvons observer divers plateaux avec des valeurs moyennes plus ou moins élevées. On observe tout de même une tendance générale qui augmente. Il n'y a pas de réelle différence entre la semaine et les weekends, à part la présence de certains pics déclenchants sur le graphique des weekends.
 
 ```{r acf recreation1}
 acf(core_ts_sem)
@@ -115,7 +115,7 @@ core_trendgen_we <- trend.test(core_ts_we, R = 999)
 plot(core_trendgen_we, main = "Histogram of t Weekend")
 ```
 
-jsppp
+Les deux graphiques (semaines et weekends) sont relativement similaires, les conclusions seront similaires. Une augmentation est significative pour les deux graphiques. Car l'histogramme nous montre les valeurs, s'il n'y avait pas de tendance, le QQ plot nous confirme cela.
 
 ```{r}
 #tsd semaine
@@ -129,7 +129,11 @@ core_tsd_we <- tsd(core_ts_we, method = "median", type = "additive", order = 4, 
 plot(core_tsd_we, xlab = "Temps (semaines)") 
 ```
 
-Compare les juste ensemble
+On peut encore une fois observer que les deux groupes de graphiques (semaines et weekends) sont très semblables. Le premier graphique sur les trois correspond à la série brute déjà analysée.
+
+Le deuxième correspond à la série lissée et permet de mieux observer les analyses du premier graphique : Une baisse au début, suivi de plusieurs plateaux à différentes valeurs et enfin une tendance générale qui augmente. Il confirme donc toutes les analyses précédentes.
+
+Le dernier des trois graphiques nous montre les résidus extraits de cette série lissée. Il s'agit donc des légères variations que l'on aperçoit dans la série brute.
 
 ### Tendances de mobilité vers les lieux de travail la semaine
 
