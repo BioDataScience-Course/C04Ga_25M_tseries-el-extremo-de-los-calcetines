@@ -115,7 +115,7 @@ Les différences de tendances locales sont minimes entre we et weekdays. La tend
 
 ### Tendances de mobilité vers les lieux de travail la semaine
 
-Nous allons maitenant nous intéresser au déplacement vers les lieux de travails de la population belge, toujours durant cette période de 2020 à 2023. Cela nous permettra de comprendre si les restrictions sanitaires mises en place par le gouvernement ont eu un réel impact sur la quotidien des belges quant à leur déplacements vers le lieu de travail. Nous savons notamment que quelques mesures ont forcé certaines personnes à pratiquer du télé travail ou encore de rester en chômage technique.
+Nous allons maintenant nous intéresser aux déplacements vers les lieux de travail de la population belge, toujours durant cette période de 2020 à 2023. Cela nous permettra de comprendre si les restrictions sanitaires mises en place par le gouvernement ont eu un réel impact sur la quotidien des Belges quant à leur déplacements vers leur lieu de travail. Nous savons notamment que quelque mesures ont forcé certaines personnes à pratiquer du télé travail ou encore à rester en chômage technique.
 
 ```{r alantest}
 #semaine
@@ -135,7 +135,7 @@ plot(trend_al_gene)
 
 Le premier graphique nous permet d'avoir une idée plus précises des tendances que nous observons. La ligne noir représente nos données brutes. La ligne rouge nous permet d'avoir les tendances locales. Le second graphique reprend uniquement cette tendance locale. Nous remarquons une baisse de la mobilité qui se fait début 2020 jusqu'à 2021. Les premières restrictions sont mises en places et les travailleurs doivent obligatoirement travailler en télétravail ou arrêter leur activité (sauf pour les magasins de premières nécessités, les secteurs hospitaliers et quelques exceptions). Un plateau se forme ensuite jusqu'en moitié de 2021 avec quelques légèrent variations. Globalement, les restrictions restent les mêmes, sauf quelques petites périodes de relâchement. Suite à ce plateau, une augmentation de mobilité ressort, un relâchement global des restrictions est en cours en la réouverture des lieux de travail est en cours pour un retour à la normale vers fin 2022.
 
-Le troisème graphique nous permet de comprendre si nos données sont réellement significatives. Nous avons une distribution semblable à celle de t de student. La ligne en pointillé représente notre valeur réel. Nous pouvons conclure après analyse du graphique que la tendance général existe dans la série.
+Le troisième graphique nous permet de comprendre si nos données sont réellement significatives. Nous avons une distribution semblable à celle de t de student. La ligne en pointillé représente notre valeur réel. Nous pouvons conclure après analyse du graphique que la tendance général existe dans la série.
 
 Le dernier graphique quantille-quantille nous confirme en tendance qui suit la normale.
 
@@ -146,18 +146,18 @@ plot(tsd_al, xlab = "Temps (semaines)")
 
 Le premier graphique nous montre notre série brute, telle que nous l'avons déjà analysée.
 
-Le second graphique nous permet de lisser nos données pour avoir une meilleure visualisation de ce que réprésente l'évolution de la mobilité. C'est le premier graphique mais "lissé".
+Le second graphique nous permet de lisser nos données pour avoir une meilleure visualisation de ce que représente l'évolution de la mobilité. C'est le premier graphique mais "lissé".
 
-Les résidus nous indiquent ce qui a été extrait de cette série lissée, donc les petites variations que l'on apercoit dans la série brute.
+Les résidus nous indiquent ce qui a été extrait de cette série lissée, donc les petites variations que l'on aperçoit dans la série brute.
 
 ```{r}
 plot(extract(tsd_al, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de travail la semaine",
   xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
 ```
 
-Nous nous intéressons à cette série filtrée. On observe effectivement une diminution de la mobilité au début de 2020, au moment des premières restricitons. Des assouplissements sont visibles avec une remontée des valeurs jusqu'environ septembre 2020. Un plateau est observé jusque mi 2021 et une légère rechute se fait ressentir pendant quelques mois, certainement dû à une nouvelle vague de restriction. Une remontée se fait immédiatement sentir après ça suivi d'un plateau pendant quelques moins, jusqu'en mi 2022. La dernière variations a lieu juste après pendant 3 mois, pour revenir à la normale fin 2022.
+Nous nous intéressons à cette série filtrée. On observe effectivement une diminution de la mobilité au début de 2020, au moment des premières restricitons. Des assouplissements sont visibles avec une remontée des valeurs jusqu'environ septembre 2020. Un plateau est observé jusque mi 2021 et une légère rechute se fait ressentir pendant quelques mois, certainement dû à une nouvelle vague de restriction. Une remontée se fait immédiatement sentir après ça suivi d'un plateau pendant quelques mois, jusqu'en mi 2022. La dernière variations a lieu juste après pendant 3 mois, pour revenir à la normale fin 2022.
 
-La mobilité au travail pendant la semaine a donc clairement montré l'influence des restrictions prises pendant la pandémie au cours de ces 3 années. Ces nouvelles règles ont changé fréquemment avec des relâchement ou des durcissement de ce qui était possible de faire.
+La mobilité au travail pendant la semaine a donc clairement montré l'influence des restrictions prises pendant la pandémie au cours de ces 3 années. Ces nouvelles règles ont changé fréquemment avec des relâchement ou des durcissements de ce qu'il était possible de faire.
 
 ### Tendances de mobilité vers les lieux de travail le week-end
 
