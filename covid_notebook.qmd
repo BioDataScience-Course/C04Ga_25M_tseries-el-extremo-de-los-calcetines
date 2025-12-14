@@ -20,7 +20,7 @@ lang: fr
 
 <!--% Rédigez une courte introduction de 3 ou 5 phrases qui présente vos données. Ajoutez une phrase de but. Vous devez citer la bibliographie en utilisant le formatage Markdown ad hoc et en incluant votre référence au format bibtex dans le fichier references.bib. -->
 
-La Covid19 a eu une grande influence sur le quotidien des belges. Nous observons l'impact de cette maladie sur la mobilité globale dans la Belgique pendant les années de 2020 à 2022. La mobilité de référence est calculée entre le 3 janvier et le 6 février 2020, une période durant laquelle il n'y a pas encore de mesures restrictives. Nous avons pour objectif d'analyser l'impact de la Covid19 sur la mobilité en Belgique.
+La Covid19 a eu une grande influence sur le quotidien des walllons. Nous observons l'impact de cette maladie sur la mobilité globale dans la Wallonie pendant les années de 2020 à 2022. La mobilité de référence est calculée entre le 3 janvier et le 6 février 2020, une période durant laquelle il n'y a pas encore de mesures restrictives. Nous avons pour objectif d'analyser l'impact de la Covid19 sur la mobilité en Wallonie vers les lieux de commerces et de divertissement, ainsi que vers le lieu de travail. Nous comparons les tendances pendant la semaine et le week-end pour éviter des biais y étant liés.
 
 ## Matériel et méthodes
 
@@ -123,7 +123,7 @@ plot(core_trendgen_we)
 
 ### Tendances de mobilité vers les lieux de travail la semaine
 
-Nous allons maintenant nous intéresser aux déplacements vers les lieux de travail de la population belge, toujours durant cette période de 2020 à 2023. Cela nous permettra de comprendre si les restrictions sanitaires mises en place par le gouvernement ont eu un réel impact sur la quotidien des Belges quant à leur déplacements vers leur lieu de travail. Nous savons notamment que quelque mesures ont forcé certaines personnes à pratiquer du télé travail ou encore à rester en chômage technique.
+Nous allons maintenant nous intéresser aux déplacements vers les lieux de travail de la population wallone, toujours durant cette période de 2020 à 2023. Cela nous permettra de comprendre si les restrictions sanitaires mises en place par le gouvernement ont eu un réel impact sur la quotidien de la Wallonie quant à leur déplacements vers leur lieu de travail. Nous savons notamment que quelques mesures ont forcé certaines personnes à pratiquer du télé travail ou encore à rester en chômage technique.
 
 ```{r alantest}
 #semaine
