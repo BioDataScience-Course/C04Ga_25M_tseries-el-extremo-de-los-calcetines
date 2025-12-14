@@ -106,9 +106,11 @@ plot(sl_core, stat = "mean")
 local.trend(core_ts_sem)
 #local trends we
 local.trend(core_ts_we)
+#local trends globale
+local.trend(core_ts, main = "Tendance locale de la mobilité vers les commerces et les lieux de récréations", xlab = "Temps (année)", ylab = "Sommes cumulées")
 ```
 
-Les différences de tendances locales sont minimes entre we et weekdays. La tendance commence par être inférieure à la moyenne de mi-février 2020 à fin mars, début avril 2020. Vers fin mars, début avril 2020, la tendance est égale à la moyenne. De la fin du mois de septembre 2020 à la fin du mois de mars 2021, elle est inférieure à la moyenne. Enfin, de fin mars 2021 à mi-octobre 2022, la tendance est supérieure à la moyenne.
+Les différences de tendances locales sont minimes entre we et weekdays et peuvent être assimilées. La tendance commence par être inférieure à la moyenne de mi-février 2020 à fin mars, début avril 2020. Vers fin mars, début avril 2020, la tendance est égale à la moyenne. De la fin du mois de septembre 2020 à la fin du mois de mars 2021, elle est inférieure à la moyenne. Enfin, de fin mars 2021 à mi-octobre 2022, la tendance est supérieure à la moyenne.
 
 ```{r tendance générale}
 #tendance gen semaine
