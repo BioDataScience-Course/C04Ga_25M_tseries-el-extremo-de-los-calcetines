@@ -157,7 +157,7 @@ plot(trend_al_gene)
 
 Le premier graphique nous permet d'avoir une idée plus précises des tendances que nous observons. La ligne noir représente nos données brutes. La ligne rouge nous permet d'avoir les tendances locales. Le second graphique reprend uniquement cette tendance locale. Nous remarquons une baisse de la mobilité qui se fait début 2020 jusqu'à 2021. Les premières restrictions sont mises en places et les travailleurs doivent obligatoirement travailler en télétravail ou arrêter leur activité (sauf pour les magasins de premières nécessités, les secteurs hospitaliers et quelques exceptions). Un plateau se forme ensuite jusqu'en moitié de 2021 avec quelques légèrent variations. Globalement, les restrictions restent les mêmes, sauf quelques petites périodes de relâchement. Suite à ce plateau, une augmentation de mobilité ressort, un relâchement global des restrictions est en cours en la réouverture des lieux de travail est en cours pour un retour à la normale vers fin 2022.
 
-Le troisième graphique nous permet de comprendre si nos données sont réellement significatives. Nous avons une distribution semblable à celle de t de student. La ligne en pointillé représente notre valeur réel. Nous pouvons conclure après analyse du graphique que la tendance général existe dans la série.
+Le troisième graphique nous permet de comprendre si nos données sont réellement significatives. Nous avons une distribution semblable à celle de t de student. La ligne en pointillé représente notre valeur réel. Nous pouvons conclure après analyse du graphique que la tendance général existe dans la série et qu'une diminution est significative.
 
 Le dernier graphique quantille-quantille nous confirme en tendance qui suit la normale.
 
