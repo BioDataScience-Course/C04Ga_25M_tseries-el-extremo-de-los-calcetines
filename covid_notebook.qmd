@@ -188,7 +188,7 @@ Dans cette partie, nous analysons les tendances de mobilité vers les lieux de t
 ```{r hugotest}
 #WE
 
-covid_hu_ts <- ts(covid_sem$residential, start = c(2020, 46), frequency = 365)
+covid_hu_ts <- ts(covid_we$workplaces, start = c(2020, 46), frequency = 365)
 covid_hu_ts2 <- aggregate(covid_hu_ts, 52, FUN = collapse::fmean, ts.eps = 1/52)
 plot(covid_hu_ts2, main = "Tendances de mobilité vers les lieux de travail (week-ends)", xlab = "Temps (années)", ylab = "Variation de mobilité (%)")
 ```
@@ -229,7 +229,7 @@ Au final, ce graphique indique qu’il existe une tendance significative dans le
 Pour compléter les analyses précédentes, nous avons appliqué une décomposition robuste de la série temporelle. Ce graphique permet de séparer la série originale, la tendance filtrée et les résidus afin de mieux comprendre la dynamique sous-jacente.
 
 ```{r}
-tsdhu <- tsd(covid_hu_ts2, method = "median", type = "additive", order = 7, time = 3)
+tsdhu <- tsd(covid_hu_ts2, method = "median", type = "additive", order = 7, times = 3)
 plot(tsdhu, xlab = "Temps (semaines)")
 ```
 
