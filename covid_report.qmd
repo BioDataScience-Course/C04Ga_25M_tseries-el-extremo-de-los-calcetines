@@ -1,5 +1,5 @@
 ---
-title: "___"
+title: "Impact du Covid19 sur la mobilité des wallons sur vers les commerces, lieux de récréation et de travail."
 author: "Huart Hugo, Liébin Arnaud, Shaw Alan, Rochet Loïc"
 format:
   pdf:
@@ -23,7 +23,7 @@ La pandémie de Covid-19 a fortement changé le quotidien des wallons. Avec les 
 
 <!--% Rédigez le but de ce rapport.-->
 
-Le but de ce travail est d’observer et de comprendre comment la Covid-19 a influencé la mobilité en Belgique entre 2020 et 2022. En comparant les données aux valeurs de référence, on cherche à voir comment les déplacements ont augmenté ou diminué selon les différentes périodes de la crise.
+Le but de ce travail est d’observer et de comprendre comment la Covid-19 a influencé la mobilité en Belgique entre 2020 et 2022. En comparant les données aux valeurs de référence, on cherche à voir comment les déplacements ont augmenté ou diminué selon les différentes périodes de la crise en se concentrant sur les commerces, les lieux de récréation et lieux de travail.
 
 ## Matériel et méthodes
 
