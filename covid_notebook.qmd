@@ -135,6 +135,17 @@ Le deuxième correspond à la série lissée et permet de mieux observer les ana
 
 Le dernier des trois graphiques nous montre les résidus extraits de cette série lissée. Il s'agit donc des légères variations que l'on aperçoit dans la série brute.
 
+```{r filtered}
+#we
+plot(extract(core_tsd_we, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de loisirs et commerce",
+  xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
+#semaine
+plot(extract(core_tsd_sem, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de loisirs et commerce",
+  xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
+```
+
+Les graphiques se comportent de la même manière pour les jours de la semaine et les weekends. On observe une diminution de la mobilité de février 2020 jusqu'au mois de mars. La mobilité augmente ensuite jusqu'en juin 2020 pour se stabiliser à une valeur proche de celle d'avant pandémie pendant environ deux mois et demi. Les valeur diminuent ensuite et reste stables autour des -20% de septembre 2020 à mars 2021. La mobilité augmente ensuite jusqu'en juin 2021 à +20%. Elle diminue ensuite jusqu'en mars 2022 pour revenir à des valeurs d'avant covid et remonte finalement pour se stabiliser à +20%.
+
 ### Tendances de mobilité vers les lieux de travail la semaine
 
 Nous allons maintenant nous intéresser aux déplacements vers les lieux de travail de la population wallone, toujours durant cette période de 2020 à 2023. Cela nous permettra de comprendre si les restrictions sanitaires mises en place par le gouvernement ont eu un réel impact sur la quotidien de la Wallonie quant à leur déplacements vers leur lieu de travail. Nous savons notamment que quelques mesures ont forcé certaines personnes à pratiquer du télé travail ou encore à rester en chômage technique.
@@ -251,4 +262,4 @@ Par la suite, la tendance diminue plus lentement, avec des phases de stabilisati
 
 <!--% Lorsque toutes les analyses sont réalisées, terminez ce bloc-notes avec 3 à 6 phrases de conclusion en rapport avec ce que vous avez observé dans vos analyses. Quels sont les éléments les plus pertinents que vous retenez ? -->
 
-La mobilité vers les lieux de commerces et de récréation n'est pas différente selon que l'on soit pendant la semaine ou pendant les weekends alors que la mobilité vers les lieux de travail varie selon que l'on soit le weekend ou la semaine. La mobilité vers le travail durant la semaine et la mobilité vers les commerces et lieux de récréation diminue fortement au début de la crise de covid19 alors que la mobilité vers les lieux de travail durant le weekend augmente. Ces tendances générales continuent jusqu'à peu avant la mi 2021. Elle s'inversent ensuite dans tous les cas pour retourner vers des valeurs proches de celles d'avant pandémie, légèrement plus haute dans le cas des déplacements liés au travail pendant le weekend et vers les commerces et lieux de récréations et légèrement inférieure pour ce qui est de la mobilité vers les lieux de travail, ce dernier point est probablement dû au télétravail qui persiste malgré la fin de la pandémie.
+La mobilité vers les lieux de commerces et de récréation n'est pas différente selon que l'on soit pendant la semaine ou pendant les weekends alors que la mobilité vers les lieux de travail varie selon que l'on soit le weekend ou la semaine. La mobilité vers le travail durant la semaine et la mobilité vers les commerces et lieux de récréation diminue fortement au début de la crise de covid19 jusqu'à mi 2021 avant de remonter jusqu'à la fin. La mobilité vers les lieux de travail du weekend se comporte à peu près de la même manière mais avec une descente et une remontée moins marquées. Après la pandémie, les valeurs sont de mobilité vers les lieux de loisirs et de commerces ainsi que les lieux de travail le weekend sont légèrement plus élevées qu'avant la pandémie, alors que les valeurs de mobilité vers le lieu de travail en semaine sont plus basses d'une vingtaine de pourcents. Cela est certainement dû à la conservation d'un certain temps de télétravail pour de nombreuses professions même après la pandémie.
