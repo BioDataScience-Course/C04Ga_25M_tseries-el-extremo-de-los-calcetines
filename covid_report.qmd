@@ -33,6 +33,25 @@ Le but de ce travail est d’observer et de comprendre comment la Covid-19 a inf
 
 <!--% Présentez les analyses les plus pertinents que vous avez sélectionnés. Structurez la section en partie avec des titres explicites de niveau trois.-->
 
+```{r implantation des données}
+SciViews::R("ts")
+covid <- read("data/mobility_wallonia.rds")
+rename(covid, commerce_recreation = retail_and_recreation_percent_change_from_baseline, grocery_pharmacy = grocery_and_pharmacy_percent_change_from_baseline, parks = parks_percent_change_from_baseline, transit = transit_stations_percent_change_from_baseline, workplaces = workplaces_percent_change_from_baseline, residential = residential_percent_change_from_baseline) ->
+  covid
+# Copie de la série initiale sous une autre nom
+covid_sem <- covid
+# Calcul des jours de la semaine
+covid_sem$weekdays <- weekdays(as.POSIXct(covid_sem$date))
+# Les données du week-end sont remplacées par des valeurs manquantes
+covid_sem[covid_sem$weekdays == "Saturday" | covid_sem$weekdays == "Sunday" , 2:7] <- NA 
+# Copie de la série initiale sous une autre nom
+covid_we <- covid
+# Calcul des jours de la semaine
+covid_we$weekdays <- weekdays(as.POSIXct(covid_we$date))
+# Les données de la semaine sont remplacées par des valeurs manquantes
+covid_we[covid_we$weekdays == "Monday" | covid_we$weekdays == "Tuesday"| covid_we$weekdays == "Wednesday" |covid_we$weekdays == "Thursday" | covid_we$weekdays == "Friday" , 2:7] <- NA 
+```
+
 ### Mobilité vers le lieu de travail pendant la semaine
 
 ```{r travail brut}
@@ -43,13 +62,14 @@ plot(covid_al_ts2, main = "Tendances de mobilité vers les lieux de travail (sem
 
 Ces premiers résultats sont les tendances brutes de mobilité vers les lieux de travail de 2020 à 2023. Les différences de tendances locales entre les week-ends et les jours de semaine sont faibles et peuvent être considérées comme négligeables. La tendance est inférieure à la moyenne de mi-février 2020 jusqu’à la fin de mars–début avril 2020, période au cours de laquelle elle rejoint la moyenne. Elle repasse ensuite en dessous de celle-ci de la fin de septembre 2020 à la fin de mars 2021. Enfin, de la fin de mars 2021 à la mi-octobre 2022, la tendance devient supérieure à la moyenne.
 
-```{r }
+```{r  travail tendance locale}
 trend_al <- local.trend(covid_al_ts2, main = "Tendance locale de la mobilité de la semaine vers le travail", xlab = "Temps (année)", ylab = "Mobilité (%) – tendance locale par rapport normale")
 ```
 
 Ce graphique, et plus précisément la ligne rouge, nous permet de voir la tendance locale de cette mobilité. Une diminution de la mobilité est observée du début de l’année 2020 jusqu’en 2021, en lien avec la mise en place des premières mesures restrictives. Celles-ci imposent le télétravail lorsque cela est possible ou l’arrêt temporaire des activités, à l’exception des secteurs essentiels tels que les commerces de première nécessité, le secteur hospitalier et quelques cas spécifiques. Un plateau s’installe ensuite jusqu’à la mi-2021, ponctué de légères fluctuations. Globalement, les restrictions demeurent relativement stables durant cette période, malgré quelques phases limitées d’assouplissement. À l’issue de ce plateau, une reprise progressive de la mobilité se dessine, correspondant à un relâchement plus général des mesures et à la réouverture progressive des lieux de travail, conduisant à un retour à des conditions proches de la normale vers la fin de l’année 2022.
 
 ```{r travail lissé}
+tsd_al <- tsd(covid_al_ts2, method = "median", type = "additive", order = 4, times = 3)
 plot(extract(tsd_al, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de travail la semaine",
   xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
 ```
