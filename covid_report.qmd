@@ -76,7 +76,34 @@ plot(extract(tsd_al, components = "filtered"), main = "Tendance filtrée de la m
 
 > L’analyse de cette série filtrée met en évidence une baisse marquée de la mobilité au début de l’année 2020, correspondant à la mise en place des premières mesures restrictives. Des phases d’assouplissement sont ensuite observables, avec une remontée progressive des valeurs jusqu’aux environs de septembre 2020. Un plateau s’installe ensuite jusqu’à la mi-2021, suivi d’une légère diminution sur plusieurs mois, probablement liée à l’introduction de nouvelles restrictions. Une reprise rapide de la mobilité est alors observée, suivie d’une nouvelle phase de stabilité qui perdure jusqu’à la mi-2022. La dernière variation notable intervient peu après, sur une période d’environ trois mois, avant un retour à des niveaux proches de la normale à la fin de l’année 2022.
 >
-> Ainsi, la mobilité professionnelle en semaine reflète clairement l’impact des mesures sanitaires mises en œuvre durant la pandémie sur ces trois années. Les fluctuations observées traduisent l’alternance entre durcissements et assouplissements des règles encadrant les déplacements et les activités autorisées.
+> Ainsi, la mobilité professionnelle en semaine reflète clairement l’impact des mesures sanitaires mises en œuvre durant la pandémie sur ces trois années. Les fluctuations observées traduisent l’alternance entre durcissements et assouplissements des règles encadrant les déplacements et les activités autorisées.=
+
+### Mobilité vers le lieu de travail pendant le week-end
+
+```{r travail brut we}
+covid_hu_ts <- ts(covid_we$workplaces, start = c(2020, 46), frequency = 365)
+covid_hu_ts2 <- aggregate(covid_hu_ts, 52, FUN = collapse::fmean, ts.eps = 1/52)
+plot(covid_hu_ts2, main = "Tendances de mobilité vers les lieux de travail (week-ends)", xlab = "Temps (années)", ylab = "Variation de mobilité (%)")
+```
+
+Le graphique met en évidence de fortes variations de la mobilité vers les lieux de travail le week-end tout au long de la pandémie. Après une chute marquée début 2020 liée aux mesures sanitaires strictes, la mobilité reste globalement plus faible et très variable en 2021, en fonction des périodes de restrictions et d’assouplissements. En 2022, malgré une dernière baisse importante, elle se stabilise à un niveau inférieur à celui d’avant la pandémie, traduisant un retour progressif à la normale, probablement influencé par le maintien du télétravail.
+
+```{r}
+loca_trend_hu <-local.trend(covid_hu_ts2, main = "Tendance locale de la mobilité week-end vers le travail", xlab = "Temps (année)", ylab = "Mobilité (%) – tendance locale par rapport normale")
+```
+
+Le graphique met en évidence les variations hebdomadaires de la mobilité (courbe noire en pointillés) ainsi que sa tendance locale lissée (courbe rouge). Début 2020, la tendance lissée montre une forte baisse, reflétant l’impact des mesures sanitaires strictes sur les déplacements vers les lieux de travail le week-end. Une légère remontée est ensuite observée lors des périodes d’assouplissement en 2020, avant qu’une tendance globalement décroissante ne persiste en 2021 malgré d’importantes fluctuations hebdomadaires.
+
+À partir de la mi-2021, la courbe lissée indique une augmentation progressive de la mobilité, suggérant un retour graduel vers une situation plus normale, bien que freiné par des changements durables comme le télétravail. L’analyse est complétée par un test de tendance par bootstrap, dont les résultats sont présentés sous forme d’un histogramme des statistiques et d’un QQ-plot comparant leur distribution à une loi normale théorique.
+
+```{r}
+tsdhu <- tsd(covid_hu_ts2, method = "median", type = "additive", order = 7, times = 3)
+plot(extract(tsdhu, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de travail le week-end", xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
+```
+
+La tendance filtrée montre l’évolution générale de la mobilité en Wallonie entre 2020 et 2022. On observe d’abord des valeurs basses au début de la période, correspondant à la situation de restrictions liées à la Covid-19. La mobilité augmente ensuite fortement avec la fin des premières mesures sanitaires (vers fin 2020).
+
+Par la suite, la tendance diminue plus lentement, avec des phases de stabilisation et de légères remontées, montrant les périodes d’assouplissement des restrictions. Il est même constaté une légère augmentation à la fin de 2022/début 2023, à la fin de la pandémie.
 
 ## Discussion et Conclusion
 
