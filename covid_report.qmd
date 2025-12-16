@@ -33,6 +33,31 @@ Le but de ce travail est d’observer et de comprendre comment la Covid-19 a inf
 
 <!--% Présentez les analyses les plus pertinents que vous avez sélectionnés. Structurez la section en partie avec des titres explicites de niveau trois.-->
 
+### Mobilité vers le lieu de travail pendant la semaine
+
+```{r travail brut}
+covid_al_ts <- ts(covid_sem$workplaces, start = c(2020, 46), frequency = 365)
+covid_al_ts2 <- aggregate(covid_al_ts, 52, FUN = collapse::fmean, ts.eps = 1/52)
+plot(covid_al_ts2, main = "Tendances de mobilité vers les lieux de travail (semaine)", xlab = "Temps (années)", ylab = "Variation de mobilité (%)")
+```
+
+Ces premiers résultats sont les tendances brutes de mobilité vers les lieux de travail de 2020 à 2023. Les différences de tendances locales entre les week-ends et les jours de semaine sont faibles et peuvent être considérées comme négligeables. La tendance est inférieure à la moyenne de mi-février 2020 jusqu’à la fin de mars–début avril 2020, période au cours de laquelle elle rejoint la moyenne. Elle repasse ensuite en dessous de celle-ci de la fin de septembre 2020 à la fin de mars 2021. Enfin, de la fin de mars 2021 à la mi-octobre 2022, la tendance devient supérieure à la moyenne.
+
+```{r }
+trend_al <- local.trend(covid_al_ts2, main = "Tendance locale de la mobilité de la semaine vers le travail", xlab = "Temps (année)", ylab = "Mobilité (%) – tendance locale par rapport normale")
+```
+
+Ce graphique, et plus précisément la ligne rouge, nous permet de voir la tendance locale de cette mobilité. Une diminution de la mobilité est observée du début de l’année 2020 jusqu’en 2021, en lien avec la mise en place des premières mesures restrictives. Celles-ci imposent le télétravail lorsque cela est possible ou l’arrêt temporaire des activités, à l’exception des secteurs essentiels tels que les commerces de première nécessité, le secteur hospitalier et quelques cas spécifiques. Un plateau s’installe ensuite jusqu’à la mi-2021, ponctué de légères fluctuations. Globalement, les restrictions demeurent relativement stables durant cette période, malgré quelques phases limitées d’assouplissement. À l’issue de ce plateau, une reprise progressive de la mobilité se dessine, correspondant à un relâchement plus général des mesures et à la réouverture progressive des lieux de travail, conduisant à un retour à des conditions proches de la normale vers la fin de l’année 2022.
+
+```{r travail lissé}
+plot(extract(tsd_al, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de travail la semaine",
+  xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
+```
+
+> L’analyse de cette série filtrée met en évidence une baisse marquée de la mobilité au début de l’année 2020, correspondant à la mise en place des premières mesures restrictives. Des phases d’assouplissement sont ensuite observables, avec une remontée progressive des valeurs jusqu’aux environs de septembre 2020. Un plateau s’installe ensuite jusqu’à la mi-2021, suivi d’une légère diminution sur plusieurs mois, probablement liée à l’introduction de nouvelles restrictions. Une reprise rapide de la mobilité est alors observée, suivie d’une nouvelle phase de stabilité qui perdure jusqu’à la mi-2022. La dernière variation notable intervient peu après, sur une période d’environ trois mois, avant un retour à des niveaux proches de la normale à la fin de l’année 2022.
+>
+> Ainsi, la mobilité professionnelle en semaine reflète clairement l’impact des mesures sanitaires mises en œuvre durant la pandémie sur ces trois années. Les fluctuations observées traduisent l’alternance entre durcissements et assouplissements des règles encadrant les déplacements et les activités autorisées.
+
 ## Discussion et Conclusion
 
 <!--% En tenant compte du but de votre carnet de notes et de vos résultats, discutez de résultats et proposez des conclusions à votre analyse en 5 à 10 phrases. -->
