@@ -158,3 +158,5 @@ Par la suite, la tendance diminue plus lentement, avec des phases de stabilisati
 ## Discussion et Conclusion
 
 <!--% En tenant compte du but de votre carnet de notes et de vos résultats, discutez de résultats et proposez des conclusions à votre analyse en 5 à 10 phrases. -->
+
+Au commencement des mesures de confinement au début de l'année 2020, les déplacements vers les lieux de travail et les lieux de loisirs et de commerces diminuent fortement.
