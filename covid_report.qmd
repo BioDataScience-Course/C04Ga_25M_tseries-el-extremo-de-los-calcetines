@@ -151,9 +151,13 @@ tsdhu <- tsd(covid_hu_ts2, method = "median", type = "additive", order = 7, time
 plot(extract(tsdhu, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de travail le week-end", xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
 ```
 
-La tendance filtrée montre l’évolution générale de la mobilité en Wallonie entre 2020 et 2022. On observe d’abord des valeurs basses au début de la période, correspondant à la situation de restrictions liées à la Covid-19. La mobilité augmente ensuite fortement avec la fin des premières mesures sanitaires (vers fin 2020).
+La tendance filtrée illustre l’évolution générale de la mobilité vers les lieux de travail le week-end en Wallonie entre 2020 et 2022.
 
-Par la suite, la tendance diminue plus lentement, avec des phases de stabilisation et de légères remontées, montrant les périodes d’assouplissement des restrictions. Il est même constaté une légère augmentation à la fin de 2022/début 2023, à la fin de la pandémie.
+Les valeurs très basses observées au début de la période s’expliquent en grande partie par l’impact des premières mesures sanitaires liées à la pandémie de Covid-19. Il convient toutefois de noter que la faiblesse apparente de la mobilité en tout début de série peut être amplifiée par un effet de bord lié au filtrage, et ne reflète pas nécessairement une baisse réelle avant la pandémie.
+
+Après la chute marquée de 2020, la mobilité reste durablement inférieure à la normale durant une grande partie de l’année 2021, traduisant le maintien de restrictions et de changements durables dans les pratiques de travail. Une reprise progressive est observable à partir de 2021, avec des phases de stabilisation et de légères fluctuations.
+
+Enfin, une augmentation plus nette apparaît en 2022, indiquant un retour graduel vers des niveaux de mobilité plus proches de la situation pré-pandémique, en lien avec la levée progressive des mesures sanitaires et l’adaptation des comportements.
 
 ## Discussion et Conclusion
 
