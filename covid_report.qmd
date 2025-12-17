@@ -29,6 +29,10 @@ Le but de ce travail est d’observer et de comprendre comment la Covid-19 a inf
 
 <!--% Cette section doit comprendre deux parties. La première partie doit expliciter le données employées et la seconde traiter des analyses réalisées et des logiciels employés.-->
 
+> Les données proviennent des rapports de mobilité de la communauté Google pour la Région wallonne (2020–2022) et décrivent les variations de fréquentation des lieux par rapport à une période de référence pré-pandémique. L’analyse se concentre sur la mobilité vers les lieux de travail durant les week-ends.
+>
+> Les traitements ont été réalisés sous R (version 4.x) avec RStudio, en utilisant le package SciViews. Les données ont été transformées en séries temporelles et une tendance filtrée a été appliquée afin de dégager l’évolution générale de la mobilité au cours du temps.
+
 ## Résultats
 
 <!--% Présentez les analyses les plus pertinents que vous avez sélectionnés. Structurez la section en partie avec des titres explicites de niveau trois.-->
@@ -153,7 +157,7 @@ plot(extract(tsdhu, components = "filtered"), main = "Tendance filtrée de la mo
 
 La tendance filtrée illustre l’évolution générale de la mobilité vers les lieux de travail le week-end en Wallonie entre 2020 et 2022.
 
-Les valeurs très basses observées au début de la période s’expliquent en grande partie par l’impact des premières mesures sanitaires liées à la pandémie de Covid-19. Il convient toutefois de noter que la faiblesse apparente de la mobilité en tout début de série peut être amplifiée par un effet de bord lié au filtrage, et ne reflète pas nécessairement une baisse réelle avant la pandémie.
+Les valeurs très faibles observées au début de la période sont principalement liées aux premières restrictions mises en place lors de la pandémie de Covid-19. Il faut toutefois préciser que le niveau particulièrement bas de la mobilité en tout début de série peut être en partie accentué par le filtrage appliqué aux données, et ne correspond pas nécessairement à une baisse réelle de la mobilité avant la pandémie.
 
 Après la chute marquée de 2020, la mobilité reste durablement inférieure à la normale durant une grande partie de l’année 2021, traduisant le maintien de restrictions et de changements durables dans les pratiques de travail. Une reprise progressive est observable à partir de 2021, avec des phases de stabilisation et de légères fluctuations.
 
