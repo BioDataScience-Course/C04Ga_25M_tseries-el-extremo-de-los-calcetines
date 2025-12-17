@@ -65,7 +65,9 @@ plot(core_ts_we, main = "Tendance de mobilité vers les lieux de loisirs et comm
   xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
 ```
 
-analyse
+Ces graphiques nous montrent l'évolution de la tendance de mobilité vers les lieux de loisir et de commerce de 2020 à 2023. Le premier montre l'évolution pour les semaines et le deuxième nous montre celle pour le weekend. Même si ces deux graphiques ont quelques différences, notamment plusieurs pics décevants pour celui des weekends. Ils ont tous les deux la même tendance.
+
+On peut observer plusieurs variations tout au long de la pandémie. On observe d'abord une grande diminution de la mobilité lors des premiers mois de 2020, causée par le début de la pandémie. Suivi par une augmentation qui se stabilise, avant de diminuer lors de l'hiver 2020-2021. Ensuite, lors de l'année 2021, il y a une augmentation qui va se stabiliser et rester stable pendant toute l'année 2021 et 2022. On note tout de même un pic de diminution lors de la fin d'année 2021 pour les weekends.
 
 ```{r localtrend_commerce_et_loisir}
 #local trends semaine
@@ -87,7 +89,11 @@ plot(extract(core_tsd_we, components = "filtered"), main = "Tendance filtrée de
   xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
 ```
 
-analyse
+Avec ces graphiques nous montrant la tendance filtrée de la mobilité vers les lieux de loisirs et commerce pour la semaine et le weekend, on observe de manière plus évidente les différents plateaux pour les deux graphiques. Les différences entre semaine et weekend restent minimums malgré une exception pour les weekends.
+
+On observe d'abord une première chute de la mobilité pour les premiers mois de 2020, en lien avec les premières restrictions pendant le confinement. On observe ensuite une augmentation à partir du mois d'avril, suivi d'un plateau qui durera un peu plus de 4 mois, s'arrêtant vers octobtre. Il y a une diminution lors de ce mois suivi d'un deuxième plateau qui lui durera environ 6 mois, jusqu'à mi-avril environ. Il y a ensuite une deuxième augmentation de la mobilité qui va mener un plateau relativement stable jusqu'à 2023. Notons tout de même une légère diminution de la mobilité vers décembre 2021 à janvier 2022. Cette diminution est plus forte pour le graphique nous montrant la tendance sur les weekends.
+
+On peut donc observer l'influence des durcissements et assouplissements des règles pendant cette pandémie lors de ces trois ans, notamment les périodes de confinement.
 
 ### Mobilité vers le lieu de travail pendant la semaine
 
