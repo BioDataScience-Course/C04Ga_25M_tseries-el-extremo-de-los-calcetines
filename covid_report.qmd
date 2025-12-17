@@ -78,20 +78,27 @@ local.trend(core_ts_we, main = "Tendance local de la mobilité vers les lieux de
   xlab = "Temps (années)", ylab = "Sommes cumulées")
 ```
 
-analyse
+Ces graphiques nous montrent les tendances locales de la mobilité pour la semaine et le weekend de 2020 à 2023. Les différences entre la semaine et le weekend sont négligeables. La ligne pointillée noire correspond aux tendances brutes et la ligne rouge correspond aux tendances locales par rapport à la moyenne.
+
+Comme pour le groupe de graphique précédent, nous observons d'abord une diminution lors des premiers mois de 2020. Ce qui correspond aux premières mesures contre la pandémie, et donc une diminution de la mobilité vers les lieux de loisir et commerce. Ensuite nous atteignons un plateau de quelques mois, où la tendance locale est relativement stable et donc égale à la moyenne.Il s'en suit une nouvelle diminution jusqu'à mi-avril 2021. Ensuite, la courbe lissée indique une augmentation continue de la mobilité qui continuera jusqu'à 2023. Cela nous indique un retour à la normale, ou du moins une baisse des mesures mises en place.
 
 ```{r filtered_commerce_et_loisir}
 #semaine
+#tsd semaine
+core_tsd_sem <- tsd(core_ts_sem, method = "median", type = "additive", order = 4, time = 3)
+#plot
 plot(extract(core_tsd_sem, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de loisirs et commerce la semaine",
   xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
 #we
+core_tsd_we <- tsd(core_ts_we, method = "median", type = "additive", order = 4, time = 3)
+#plot
 plot(extract(core_tsd_we, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de loisirs et commerce le weekend",
   xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
 ```
 
 Avec ces graphiques nous montrant la tendance filtrée de la mobilité vers les lieux de loisirs et commerce pour la semaine et le weekend, on observe de manière plus évidente les différents plateaux pour les deux graphiques. Les différences entre semaine et weekend restent minimums malgré une exception pour les weekends.
 
-On observe d'abord une première chute de la mobilité pour les premiers mois de 2020, en lien avec les premières restrictions pendant le confinement. On observe ensuite une augmentation à partir du mois d'avril, suivi d'un plateau qui durera un peu plus de 4 mois, s'arrêtant vers octobtre. Il y a une diminution lors de ce mois suivi d'un deuxième plateau qui lui durera environ 6 mois, jusqu'à mi-avril environ. Il y a ensuite une deuxième augmentation de la mobilité qui va mener un plateau relativement stable jusqu'à 2023. Notons tout de même une légère diminution de la mobilité vers décembre 2021 à janvier 2022. Cette diminution est plus forte pour le graphique nous montrant la tendance sur les weekends.
+On observe d'abord une première chute de la mobilité pour les premiers mois de 2020, en lien avec les premières restrictions pendant le confinement. On observe ensuite une augmentation à partir du mois d'avril, suivi d'un plateau qui durera un peu plus de 4 mois, s'arrêtant vers octobre. Il y a une diminution lors de ce mois suivi d'un deuxième plateau qui lui durera environ 6 mois, jusqu'à mi-avril environ. Il y a ensuite une deuxième augmentation de la mobilité qui va mener un plateau relativement stable jusqu'à 2023. Notons tout de même une légère diminution de la mobilité vers décembre 2021 à janvier 2022. Cette diminution est plus forte pour le graphique nous montrant la tendance sur les weekends.
 
 On peut donc observer l'influence des durcissements et assouplissements des règles pendant cette pandémie lors de ces trois ans, notamment les périodes de confinement.
 
