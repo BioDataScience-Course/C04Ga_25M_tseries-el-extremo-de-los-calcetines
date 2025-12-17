@@ -159,4 +159,4 @@ Par la suite, la tendance diminue plus lentement, avec des phases de stabilisati
 
 <!--% En tenant compte du but de votre carnet de notes et de vos résultats, discutez de résultats et proposez des conclusions à votre analyse en 5 à 10 phrases. -->
 
-Au commencement des mesures de confinement au début de l'année 2020, les déplacements vers les lieux de travail et les lieux de loisirs et de commerces diminuent fortement.
+Au commencement des mesures de confinement au début de l'année 2020, les déplacements vers les lieux de travail et les lieux de loisirs et de commerces diminuent fortement. La mobilité augmente ensuite à la fin du premier confinement avec l'allègement des mesures pour revenir à des valeurs proches d'avant la pandémie. Les valeurs de mobilité vers les lieux de travail (semaine) et les lieux de commerces et de loisirs redescendent ensuite vers septembre 2021 avec la deuxième vague de malades. Ces deux valeurs augmente ensuite dès début 2021 avec la fin des mesures prises à la suite de la deuxième vague et retournent lentement vers des valeurs légèrement supérieures à celles d'avant la pandémie. Pour les valeurs de mobi
