@@ -1,5 +1,5 @@
 ---
-title: "Impact du Covid19 sur la mobilité des wallons sur vers les commerces, lieux de récréation et de travail."
+title: "Impact de la Covid-19 sur la mobilité des Wallons vers les commerces, lieux de récréation et de travail."
 author: "Huart Hugo, Liébin Arnaud, Shaw Alan, Rochet Loïc"
 format:
   pdf:
@@ -17,7 +17,7 @@ lang: fr
 
 <!--% Rédigez l'introduction de ce rapport.-->
 
-La pandémie de Covid-19 a fortement changé le quotidien des wallons. Avec les confinements, les limites de déplacement et le télétravail, les habitudes de mobilité ont été complètement bouleversées. Pour voir à quel point ces changements ont été importants, on compare la mobilité pendant la pandémie à celle d’avant les mesures, entre le 3 janvier et le 6 février 2020, une période où tout fonctionnait normalement.
+La pandémie de Covid-19 a fortement changé le quotidien des Wallons. Avec les confinements, les limites de déplacement et le télétravail, les habitudes de mobilité ont été complètement bouleversées. Pour voir à quel point ces changements ont été importants, on compare la mobilité pendant la pandémie à celle d’avant les mesures, entre le 3 janvier et le 6 février 2020, une période où tout fonctionnait normalement.
 
 ## But
 
@@ -65,9 +65,9 @@ plot(core_ts_we, main = "Tendance de mobilité vers les lieux de loisirs et comm
   xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
 ```
 
-Ces graphiques nous montrent l'évolution de la tendance de mobilité vers les lieux de loisir et de commerce de 2020 à 2023. Le premier montre l'évolution pour les semaines et le deuxième nous montre celle pour le weekend. Même si ces deux graphiques ont quelques différences, notamment plusieurs pics décevants pour celui des weekends. Ils ont tous les deux la même tendance.
+Ces graphiques nous montrent l'évolution de la tendance de mobilité vers les lieux de loisir et de commerce de 2020 à 2023. Le premier montre l'évolution pour les semaines et le deuxième nous montre celle pour le weekend. Même si ces deux graphiques ont quelques différences, notamment plusieurs pics décevants pour celui des weekends, ils ont tous les deux la même tendance.
 
-On peut observer plusieurs variations tout au long de la pandémie. On observe d'abord une grande diminution de la mobilité lors des premiers mois de 2020, causée par le début de la pandémie. Suivi par une augmentation qui se stabilise, avant de diminuer lors de l'hiver 2020-2021. Ensuite, lors de l'année 2021, il y a une augmentation qui va se stabiliser et rester stable pendant toute l'année 2021 et 2022. On note tout de même un pic de diminution lors de la fin d'année 2021 pour les weekends.
+On peut observer plusieurs variations tout au long de la pandémie. On observe d'abord une grande diminution de la mobilité lors des premiers mois de 2020, au début de la pandémie. Suivi par une augmentation qui se stabilise, avant de diminuer lors de l'hiver 2020-2021. Ensuite, lors de l'année 2021, il y a une augmentation qui va se stabiliser pendant toute l'année 2021 et 2022. On note tout de même un pic de diminution lors de la fin d'année 2021 pour les weekends.
 
 ```{r localtrend_commerce_et_loisir}
 #local trends semaine
@@ -80,7 +80,7 @@ local.trend(core_ts_we, main = "Tendance local de la mobilité vers les lieux de
 
 Ces graphiques nous montrent les tendances locales de la mobilité pour la semaine et le weekend de 2020 à 2023. Les différences entre la semaine et le weekend sont négligeables. La ligne pointillée noire correspond aux tendances brutes et la ligne rouge correspond aux tendances locales par rapport à la moyenne.
 
-Comme pour le groupe de graphique précédent, nous observons d'abord une diminution lors des premiers mois de 2020. Ce qui correspond aux premières mesures contre la pandémie, et donc une diminution de la mobilité vers les lieux de loisir et commerce. Ensuite nous atteignons un plateau de quelques mois, où la tendance locale est relativement stable et donc égale à la moyenne.Il s'en suit une nouvelle diminution jusqu'à mi-avril 2021. Ensuite, la courbe lissée indique une augmentation continue de la mobilité qui continuera jusqu'à 2023. Cela nous indique un retour à la normale, ou du moins une baisse des mesures mises en place.
+Comme pour le groupe de graphiques précédents, nous observons d'abord une diminution lors des premiers mois de 2020. Ce qui correspond aux premières mesures contre la pandémie, et donc une diminution de la mobilité vers les lieux de loisir et commerce. Ensuite nous atteignons un plateau de quelques mois, où la tendance locale est relativement stable et donc égale à la moyenne.Il s'en suit une nouvelle diminution jusqu'à mi-avril 2021. Ensuite, la courbe lissée indique une augmentation continue de la mobilité qui continuera jusqu'à 2023. Cela nous indique un retour à la normale, ou du moins une baisse des mesures mises en place.
 
 ```{r filtered_commerce_et_loisir}
 #semaine
@@ -96,7 +96,7 @@ plot(extract(core_tsd_we, components = "filtered"), main = "Tendance filtrée de
   xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
 ```
 
-Avec ces graphiques nous montrant la tendance filtrée de la mobilité vers les lieux de loisirs et commerce pour la semaine et le weekend, on observe de manière plus évidente les différents plateaux pour les deux graphiques. Les différences entre semaine et weekend restent minimums malgré une exception pour les weekends.
+Avec ces graphiques nous montrant la tendance filtrée de la mobilité vers les lieux de loisirs et commerce pour la semaine et le weekend, on observe de manière plus évidente les différents plateaux pour les deux graphiques. Les différences entre semaine et weekend restent minimes malgré une exception pour les weekends.
 
 On observe d'abord une première chute de la mobilité pour les premiers mois de 2020, en lien avec les premières restrictions pendant le confinement. On observe ensuite une augmentation à partir du mois d'avril, suivi d'un plateau qui durera un peu plus de 4 mois, s'arrêtant vers octobre. Il y a une diminution lors de ce mois suivi d'un deuxième plateau qui lui durera environ 6 mois, jusqu'à mi-avril environ. Il y a ensuite une deuxième augmentation de la mobilité qui va mener un plateau relativement stable jusqu'à 2023. Notons tout de même une légère diminution de la mobilité vers décembre 2021 à janvier 2022. Cette diminution est plus forte pour le graphique nous montrant la tendance sur les weekends.
 
@@ -126,7 +126,7 @@ plot(extract(tsd_al, components = "filtered"), main = "Tendance filtrée de la m
 
 > L’analyse de cette série filtrée met en évidence une baisse marquée de la mobilité au début de l’année 2020, correspondant à la mise en place des premières mesures restrictives. Des phases d’assouplissement sont ensuite observables, avec une remontée progressive des valeurs jusqu’aux environs de septembre 2020. Un plateau s’installe ensuite jusqu’à la mi-2021, suivi d’une légère diminution sur plusieurs mois, probablement liée à l’introduction de nouvelles restrictions. Une reprise rapide de la mobilité est alors observée, suivie d’une nouvelle phase de stabilité qui perdure jusqu’à la mi-2022. La dernière variation notable intervient peu après, sur une période d’environ trois mois, avant un retour à des niveaux proches de la normale à la fin de l’année 2022.
 >
-> Ainsi, la mobilité professionnelle en semaine reflète clairement l’impact des mesures sanitaires mises en œuvre durant la pandémie sur ces trois années. Les fluctuations observées traduisent l’alternance entre durcissements et assouplissements des règles encadrant les déplacements et les activités autorisées.=
+> Ainsi, la mobilité professionnelle en semaine reflète clairement l’impact des mesures sanitaires mises en œuvre durant la pandémie sur ces trois années. Les fluctuations observées traduisent l’alternance entre durcissements et assouplissements des règles encadrant les déplacements et les activités autorisées.
 
 ### Mobilité vers le lieu de travail pendant le week-end
 
