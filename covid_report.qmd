@@ -52,6 +52,43 @@ covid_we$weekdays <- weekdays(as.POSIXct(covid_we$date))
 covid_we[covid_we$weekdays == "Monday" | covid_we$weekdays == "Tuesday"| covid_we$weekdays == "Wednesday" |covid_we$weekdays == "Thursday" | covid_we$weekdays == "Friday" , 2:7] <- NA 
 ```
 
+### Mobilité vers les commerces et loisir pendant la semaine et le weekend
+
+```{r ts_commerce_et_loisir}
+#création obbjet ts pour weekdays uniquement
+core_ts_sem <- aggregate(ts(covid_sem$commerce_recreation, start = c(2020, 46), frequency = 365), 52, FUN = collapse::fmean, ts.eps = 1/52)
+plot(core_ts_sem, main = "Tendance de mobilité vers les lieux de loisirs et commerce la semaine",
+  xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
+#création obbjet ts pour we uniquement
+core_ts_we <- aggregate(ts(covid_we$commerce_recreation, start = c(2020, 46), frequency = 365), 52, FUN = collapse::fmean, ts.eps = 1/52)
+plot(core_ts_we, main = "Tendance de mobilité vers les lieux de loisirs et commerce le weekend",
+  xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
+```
+
+analyse
+
+```{r localtrend_commerce_et_loisir}
+#local trends semaine
+local.trend(core_ts_sem, main = "Tendance local de la mobilité vers les lieux de loisirs et commerce la semaine",
+  xlab = "Temps (années)", ylab = "Sommes cumulées")
+#local trends we
+local.trend(core_ts_we, main = "Tendance local de la mobilité vers les lieux de loisirs et commerce le weekend",
+  xlab = "Temps (années)", ylab = "Sommes cumulées")
+```
+
+analyse
+
+```{r filtered_commerce_et_loisir}
+#semaine
+plot(extract(core_tsd_sem, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de loisirs et commerce la semaine",
+  xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
+#we
+plot(extract(core_tsd_we, components = "filtered"), main = "Tendance filtrée de la mobilité vers les lieux de loisirs et commerce le weekend",
+  xlab = "Temps (années)", ylab = "Mobilité (% par rapport à la normale)")
+```
+
+analyse
+
 ### Mobilité vers le lieu de travail pendant la semaine
 
 ```{r travail brut}
