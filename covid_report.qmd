@@ -29,9 +29,9 @@ Le but de ce travail est d’observer et de comprendre comment la Covid-19 a inf
 
 <!--% Cette section doit comprendre deux parties. La première partie doit expliciter le données employées et la seconde traiter des analyses réalisées et des logiciels employés.-->
 
-> Les données proviennent des rapports de mobilité de la communauté Google pour la Région wallonne (2020–2022) et décrivent les variations de fréquentation des lieux par rapport à une période de référence pré-pandémique. L’analyse se concentre sur la mobilité vers les lieux de travail durant les week-ends.
->
-> Les traitements ont été réalisés sous R (version 4.x) avec RStudio, en utilisant le package SciViews. Les données ont été transformées en séries temporelles et une tendance filtrée a été appliquée afin de dégager l’évolution générale de la mobilité au cours du temps.
+Les données proviennent des rapports de mobilité de la communauté Google pour la Région wallonne (2020–2022) et décrivent les variations de fréquentation des lieux par rapport à une période de référence pré-pandémique. L’analyse se concentre sur la mobilité vers les lieux de travail durant les week-ends.
+
+Les traitements ont été réalisés sous R (version 4.x) avec RStudio, en utilisant le package SciViews. Les données ont été transformées en séries temporelles et une tendance filtrée a été appliquée afin de dégager l’évolution générale de la mobilité au cours du temps.
 
 ## Résultats
 
